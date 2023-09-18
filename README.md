@@ -32,15 +32,23 @@ This scraper is under active development. If you have any feature requests you c
 
 The input of this scraper should be JSON containing the list of pages on Google Search that should be visited. Required fields are:
 
-- `search`: (Optional) (String) Keyword that you want to search on Google Search.
+- `startUrls`: (Optional) (Array) List of Google Search URLs. You should only include search URLs. It must be used if `queries` parameter is not used.
 
-- `startUrls`: (Optional) (Array) List of Google Search URLs. You should only provide a news list, jobs list, or detailed URLs.
+- `queries`: (Optional) (Array) Keywords you want to search on Google. It must be used if `startUrls` parameter is not used.
 
-- `includeReviews`: (Optional) (Boolean) This will add all the reviews that Google Search provides into the detail objects. Please keep in mind that the time and resources the actor uses will increase proportionally to the number of reviews.
+- `countryCode`: (Optional) (String) This option determines the Google search domain by the country code. It only applies to the search queries.
 
-- `endPage`: (Optional) (Number) Final number of page that you want to scrape. The default is `Infinite`. This applies to all `search` requests and `startUrls` individually.
+- `languageCode`: (Optional) (String) This option determines the language of the Google search results which is passed to Google Search as the `hl` URL query parameter.
 
-- `maxItems`: (Optional) (Number) You can limit scraped items. This should be useful when you search through the big lists or search results.
+- `locationUule`: (Optional) (String) The code for the exact location for the Google search. It's passed to Google Search as the uule URL query parameter. You can use the UULE code generator https://padavvan.github.io/.
+
+- `maxItems`: (Optional) (Integer) You can limit scraped items. This should be useful when you search through the big lists or search results.
+
+- `resultsPerPage`: (Optional) (String) Number of search results for each Google result page. By default, Google Search returns 10 results per page. The allowed values are 10, 20, 30, 40, 50 and 100.
+
+- `includeUnfilteredResults`: (Optional) (Boolean) If checked, the lower-quality results that Google normally filters out will be included. This usually consists of a few hundred extra results.
+
+- `endPage`: (Optional) (Integer) The page number that you want to end with. By default there is no end page. This is applies to all search requests and startUrls individually.
 
 - `proxy`: (Required) (Proxy Object) Proxy configuration.
 
@@ -77,7 +85,7 @@ The actor is optimized to run blazing fast and scrape as many items as possible.
   "countryCode": "us",
   "languageCode": "tr",
   "locationUule":"w+CAIQICIIaXN0YW5idWw=",
-  "resultsPerPage":20,
+  "resultsPerPage":"20",
   "includeUnfilteredResults": true,
   "proxy":{
     "useApifyProxy":true
@@ -196,7 +204,7 @@ The structure of each item in Google Search looks like this:
 		"query": "sculpture",
 		"countryCode": "us",
 		"languageCode": "tr",
-		"resultsPerPage": 20,
+		"resultsPerPage": "20",
 		"domain": "google.com",
 		"locationUule": "w+CAIQICIIaXN0YW5idWw="
 	}
