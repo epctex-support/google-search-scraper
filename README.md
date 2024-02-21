@@ -1,4 +1,4 @@
-[https://apify.com/epctex/google-search-scraper?fpr=yhdrb](https://apify.com/epctex/google-search-scraper?fpr=yhdrb)
+[https://apify.com/epctex/google-search-scraper](https://apify.com/epctex/google-search-scraper?fpr=yhdrb)
 
 # Actor - Google Search Scraper
 
